@@ -12,7 +12,7 @@ import com.jeromeDing.demo.entity.Worker;
 import com.jeromeDing.demo.service.WorkerService;
 
 @RestController
-@RequestMapping("/api/workers")
+@RequestMapping("/api/worker")
 public class WorkerController {
     private final WorkerService service;
 

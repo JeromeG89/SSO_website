@@ -21,7 +21,16 @@ public class AssignmentService {
         return this.assignmentRepoistory.save(assignment);
     }
 
-    public List<WorkAssignment> getAllWorkers() {
+    public List<WorkAssignment> getAllAssignments() {
         return this.assignmentRepoistory.findAll();
+    }
+
+    public WorkAssignment removeAssignment(Long id) {
+        return assignmentRepoistory.findById(id)
+            .map(assignment -> {
+                assignmentRepoistory.delete(assignment);
+                return assignment;
+            })
+            .orElseThrow(() -> new RuntimeException("Assignment not found with id: " + id));
     }
 }
